@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="calculadora">
+        <table>
+            <tr>
+                <td colspan="4"><input id="display" readonly></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button class="botoes" id="simboloapagar" onclick="limparValor()">C</button></td>
+                <td><button class="botoes" onclick="adicionarValor('/')">%</button></td>
+                <td><button class="botoes" onclick="adicionarValor('*')">*</button></td>
+            </tr>
+            <tr>
+                <td><button class="botoes" onclick="adicionarValor('7')">7</button></td>
+                <td><button class="botoes" onclick="adicionarValor('8')">8</button></td>
+                <td><button class="botoes" onclick="adicionarValor('9')">9</button></td>
+                <td><button class="botoes" onclick="adicionarValor('-')">-</button></td>
+            </tr>
+            <tr>
+                <td><button class="botoes" onclick="adicionarValor('4')">4</button></td>
+                <td><button class="botoes" onclick="adicionarValor('5')">5</button></td>
+                <td><button class="botoes" onclick="adicionarValor('6')">6</button></td>
+                <td><button class="botoes" onclick="adicionarValor('+')">+</button></td>
+            </tr>
+            <tr>
+                <td><button class="botoes" onclick="adicionarValor('1')">1</button></td>
+                <td><button class="botoes" onclick="adicionarValor('2')">2</button></td>
+                <td><button class="botoes" onclick="adicionarValor('3')">3</button></td>
+                <td rowspan="2"><button class="botoes" id="simboloigual" onclick="calcular()">=</button></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button class="botoes" id="numero0" onclick="adicionarValor('0')">0</button></td>
+                <td><button class="botoes">.</button></td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        const display = document.getElementById("display");
+
+        function adicionarValor(input){
+            display.value += input;
+        }
+
+        function limparValor(){
+            display.value = "";
+        }
+
+        function calcular(){
+            display.value = eval(display.value);
+        }
+    </script>
+</body>
+</html>
